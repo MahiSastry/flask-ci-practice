@@ -4,7 +4,7 @@ app = Flask(__name__)  # double underscores
 
 @app.route('/')
 def home():
-    return "Different message!"  # This should fail our test
+    return "Hello from Docker Container!"  # Change back to original message
 
 @app.route('/predict', methods=['POST'])
 def predict():
