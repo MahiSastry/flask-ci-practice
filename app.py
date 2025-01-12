@@ -10,8 +10,9 @@ def home():
 def predict():
     data = request.get_json()
     amount = data.get('loan_amount', 0)
-    # Let's change logic to always approve
-    return jsonify({'result': 'approved'})
+    # Simple logic: approve if amount <= 100000
+    result = 'approved' if amount <= 100000 else 'rejected'
+    return jsonify({'result': result})
 
 if __name__ == "__main__":  # double underscores
     app.run(debug=True, host='0.0.0.0')
